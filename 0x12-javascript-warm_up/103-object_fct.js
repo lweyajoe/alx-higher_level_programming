@@ -1,9 +1,13 @@
 #!/usr/bin/node
+
+
+/*
 let myObject = {
   type: 'object',
   value: 12
 };
 console.log(myObject);
+*/
 
 /*
 adding line below prints as a result:
@@ -12,6 +16,8 @@ adding line below prints as a result:
 { type: 'object', value: 14, incr: [Function] }
 { type: 'object', value: 15, incr: [Function] }
 */
+
+/*
 myObject.incr = function () { this.value += 1; };
 
 myObject.incr();
@@ -20,3 +26,32 @@ myObject.incr();
 console.log(myObject);
 myObject.incr();
 console.log(myObject);
+*/
+
+class MyObject {
+  constructor() {
+    this.type = 'object';
+    this.value = 12;
+  }
+
+  incr() {
+    this.value++;
+  }
+}
+
+const myObject = new MyObject();
+console.log(myObject);
+
+myObject.incr();
+console.log(myObject);
+
+myObject.incr();
+console.log(myObject);
+
+myObject.incr();
+console.log(myObject);
+
+
+
+
+
