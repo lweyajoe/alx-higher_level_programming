@@ -50,12 +50,14 @@ def find_peak(list_of_integers):
             return mid_value
         
         # Move towards the direction with the greater neighboring element
-        if prev_value > mid_value:
+        if mid_value < prev_value:
             right = mid - 1
         else:
             left = mid + 1
     
     return None  # No peak found
+
+
 
 """
 # Example usage
