@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const id = process.argv[2];
-const url = 'http://swapi.co/api/films/' + id;
+const url = 'https://swapi-api.alx-tools.com/api/films/:id' + id;
 const request = require('request');
 
 request(url, function (err, response, body) {
