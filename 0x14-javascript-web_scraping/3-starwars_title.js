@@ -20,7 +20,6 @@ const request = require('request');
 
 // Function to fetch and print the movie title
 function getMovieTitleByEpisode (episodeId) {
-  // Construct the API endpoint URL
   const apiUrl = `https://swapi-api.alx-tools.com/api/films/${episodeId}`;
 
   // Send a GET request to the API
