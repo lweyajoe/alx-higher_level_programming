@@ -19,7 +19,7 @@ request(url, function (err, response, body) {
 const request = require('request');
 
 // Function to fetch and print the movie title
-function getMovieTitleByEpisode(episodeId) {
+function getMovieTitleByEpisode (episodeId) {
   // Construct the API endpoint URL
   const apiUrl = `https://swapi-api.alx-tools.com/api/films/${episodeId}`;
 
@@ -46,6 +46,3 @@ const episodeId = parseInt(process.argv[2]);
 
 // Call the function to fetch and print the movie title
 getMovieTitleByEpisode(episodeId);
-
-
-
