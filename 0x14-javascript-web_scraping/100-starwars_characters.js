@@ -12,13 +12,13 @@ request(url, function (err, response, body) {
     for (const i in body.characters) {
       request(body.characters[i], function (err, response, body) {
         if (err) {
-	  console.log(err);
+          console.log(err);
         } else if (response.statusCode === 200) {
-	  console.log(JSON.parse(body).name);
+          console.log(JSON.parse(body).name);
         }
       });
     }
   } else {
-    console.log('Erorr Code:' + response.statusCode);
+    console.log('Error Code:' + response.statusCode);
   }
 });
