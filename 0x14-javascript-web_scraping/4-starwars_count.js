@@ -13,7 +13,7 @@ request(url, function (err, response, body) {
       const chars = films[i].characters;
       for (const c in chars) {
         if (chars[c].includes('18')) {
-	  count++;
+          count++;
         }
       }
     }
