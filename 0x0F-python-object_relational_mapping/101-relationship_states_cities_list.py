@@ -1,33 +1,26 @@
 #!/usr/bin/python3
 """
-use table relationship to access and print city and state
-parameters given to script: username, password, database
+lists all State objects and corresponding City objects contained in a database
 """
 
-from sys import argv
-from relationship_state import Base, State
-from relationship_city import City
+import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from relationship_state import Base, State
+from relationship_city import City
+from sys import argv
 
 
 if __name__ == "__main__":
-
-    # make engine for database
-    user = argv[1]
-    passwd = argv[2]
-    db = argv[3]
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
-                           format(user, passwd, db), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
+    eng = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(argv[1],
+                                                                    argv[2],
+                                                                    argv[3]))
+    Base.metadata.create_all(eng)
+    Session = sessionmaker(bind=eng)
     session = Session()
-
-    # use table relationship to access and print city and state
-    rows = session.query(State).order_by(State.id).all()
+    rows = session.query(State).all()
     for state in rows:
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
             print("    {}: {}".format(city.id, city.name))
-
     session.close()
